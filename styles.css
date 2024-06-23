@@ -10,11 +10,19 @@ body {
 
 .container {
     text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
 }
 
 #timer {
-    font-size: 55px;
-    margin: 20px 0;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 button {
@@ -28,6 +36,45 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
-    background-color: #7ca3df;
+button:active {
+    transform: scale(0.95);
 }
+
+#startStop {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#reset {
+    background-color: #f44336;
+    color: white;
+}
+
+#sessions {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+

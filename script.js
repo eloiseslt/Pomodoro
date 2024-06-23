@@ -1,53 +1,67 @@
-let minutes = 50;
-let seconds = 0;
-let interval;
+let timer;
 let isRunning = false;
+let isWorkSession = true;
+let workTime = 50 * 60; // 50 minutes in seconds
+let breakTime = 10 * 60; // 10 minutes in seconds
+let time = workTime;
+let sessionCount = 0;
 
-const minutesDisplay = document.getElementById('minutes');
-const secondsDisplay = document.getElementById('seconds');
+const minutesElement = document.getElementById('minutes');
+const secondsElement = document.getElementById('seconds');
 const startStopButton = document.getElementById('startStop');
 const resetButton = document.getElementById('reset');
+const sessionCountElement = document.getElementById('sessionCount');
 
 function updateDisplay() {
-    minutesDisplay.textContent = minutes.toString().padStart(2, '0');
-    secondsDisplay.textContent = seconds.toString().padStart(2, '0');
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+
+    minutesElement.textContent = minutes.toString().padStart(2, '0');
+    secondsElement.textContent = seconds.toString().padStart(2, '0');
 }
 
-function timer() {
-    if (seconds === 0) {
-        if (minutes === 0) {
-            clearInterval(interval);
-            isRunning = false;
-            startStopButton.textContent = 'Commencer';
-            alert('Temps écoulé!');
-            return;
-        }
-        minutes--;
-        seconds = 59;
-    } else {
-        seconds--;
-    }
-    updateDisplay();
-}
-
-startStopButton.addEventListener('click', () => {
-    if (isRunning) {
-        clearInterval(interval);
-        startStopButton.textContent = 'Commencer';
-    } else {
-        interval = setInterval(timer, 1000);
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
         startStopButton.textContent = 'Pause';
+        timer = setInterval(() => {
+            if (time > 0) {
+                time--;
+                updateDisplay();
+            } else {
+                clearInterval(timer);
+                if (isWorkSession) {
+                    isWorkSession = false;
+                    time = breakTime;
+                    alert('Temps de pause !');
+                } else {
+                    isWorkSession = true;
+                    time = workTime;
+                    sessionCount++;
+                    sessionCountElement.textContent = sessionCount;
+                    alert('Retour au travail !');
+                }
+                updateDisplay();
+                startTimer(); // Démarre immédiatement la prochaine session
+            }
+        }, 1000);
+    } else {
+        clearInterval(timer);
+        isRunning = false;
+        startStopButton.textContent = 'Commencer';
     }
-    isRunning = !isRunning;
-});
+}
 
-resetButton.addEventListener('click', () => {
-    clearInterval(interval);
+function resetTimer() {
+    clearInterval(timer);
     isRunning = false;
-    minutes = 50;
-    seconds = 0;
+    isWorkSession = true;
+    time = workTime;
     updateDisplay();
     startStopButton.textContent = 'Commencer';
-});
+}
 
-updateDisplay();
+startStopButton.addEventListener('click', startTimer);
+resetButton.addEventListener('click', resetTimer);
+
+updateDisplay(); // Initialize display
