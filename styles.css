@@ -1,10 +1,10 @@
 body {
-    font-family: Palatino;
+    font-family: Bomber balloon;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #dc9b9b;
+    background-color: #cfb6b6;
     margin: 0;
 }
 
@@ -13,7 +13,7 @@ body {
 }
 
 #timer {
-    font-size: 48px;
+    font-size: 55px;
     margin: 20px 0;
 }
 
@@ -23,11 +23,11 @@ button {
     margin: 5px;
     cursor: pointer;
     border: none;
-    background-color: #dce7f4;
-    color: rgb(8, 3, 58);
+    background-color: #7ca3df;
+    color: rgb(26, 15, 151);
     border-radius: 5px;
 }
 
 button:hover {
-    background-color: #dce7f4;
+    background-color: #7ca3df;
 }
