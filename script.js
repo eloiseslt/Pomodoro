@@ -71,6 +71,11 @@ function startConfig() {
     menu.style.display = 'none';
     timerContainer.style.display = 'block';
     backToMenuButton.style.display = 'block';
+
+    // Réinitialiser les boutons sélectionnés
+    document.querySelectorAll('.time-button').forEach(button => {
+        button.classList.remove('selected');
+    });
 }
 
 function backToMenu() {
