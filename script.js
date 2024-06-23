@@ -84,17 +84,33 @@ function backToMenu() {
     sessionCount = 0;
     time = 0;
     updateDisplay();
+    // Réinitialiser les boutons sélectionnés
+    document.querySelectorAll('.time-button').forEach(button => {
+        button.classList.remove('selected');
+    });
 }
 
-document.querySelectorAll('.time-selection .time-button').forEach(button => {
-    button.addEventListener('click', (event) => {
-        const timeValue = parseInt(event.target.getAttribute('data-time'));
-        if (event.target.parentElement.previousElementSibling.textContent.includes('travail')) {
-            workTime = timeValue * 60;
-        } else {
-            breakTime = timeValue * 60;
-        }
+function handleTimeButtonClick(event) {
+    const timeValue = parseInt(event.target.getAttribute('data-time'));
+    const parentId = event.target.parentElement.parentElement.id;
+
+    // Réinitialiser les boutons sélectionnés
+    document.querySelectorAll(`#${parentId} .time-button`).forEach(button => {
+        button.classList.remove('selected');
     });
+
+    // Ajouter la classe 'selected' au bouton cliqué
+    event.target.classList.add('selected');
+
+    if (parentId === 'workTimeSelection') {
+        workTime = timeValue * 60;
+    } else {
+        breakTime = timeValue * 60;
+    }
+}
+
+document.querySelectorAll('.time-button').forEach(button => {
+    button.addEventListener('click', handleTimeButtonClick);
 });
 
 startStopButton.addEventListener('click', startTimer);
