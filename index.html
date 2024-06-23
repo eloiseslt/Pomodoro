@@ -9,12 +9,36 @@
 <body>
     <div class="container">
         <h1>Timer Pomodoro</h1>
-        <div id="timer">
-            <span id="minutes">50</span>:<span id="seconds">00</span>
+        <div id="menu">
+            <label for="workTime">Temps de travail:</label>
+            <select id="workTime">
+                <option value="25">25 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="35">35 minutes</option>
+                <option value="40">40 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="50">50 minutes</option>
+                <option value="55">55 minutes</option>
+                <option value="60">60 minutes</option>
+            </select>
+            <br>
+            <label for="breakTime">Temps de pause:</label>
+            <select id="breakTime">
+                <option value="5">5 minutes</option>
+                <option value="10">10 minutes</option>
+                <option value="15">15 minutes</option>
+            </select>
+            <br>
+            <button id="startConfig">Commencer</button>
         </div>
-        <button id="startStop">Commencer</button>
-        <button id="reset">Réinitialiser</button>
-        <div id="sessions">Sessions de travail : <span id="sessionCount">0</span></div>
+        <div id="timerContainer" style="display: none;">
+            <div id="timer">
+                <span id="minutes">00</span>:<span id="seconds">00</span>
+            </div>
+            <button id="startStop">Commencer</button>
+            <button id="reset">Réinitialiser</button>
+            <div id="sessions">Sessions de travail : <span id="sessionCount">0</span></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

@@ -1,9 +1,9 @@
 let timer;
 let isRunning = false;
 let isWorkSession = true;
-let workTime = 50 * 60; // 50 minutes in seconds
-let breakTime = 10 * 60; // 10 minutes in seconds
-let time = workTime;
+let workTime = 0;
+let breakTime = 0;
+let time = 0;
 let sessionCount = 0;
 
 const minutesElement = document.getElementById('minutes');
@@ -11,6 +11,11 @@ const secondsElement = document.getElementById('seconds');
 const startStopButton = document.getElementById('startStop');
 const resetButton = document.getElementById('reset');
 const sessionCountElement = document.getElementById('sessionCount');
+const startConfigButton = document.getElementById('startConfig');
+const workTimeSelect = document.getElementById('workTime');
+const breakTimeSelect = document.getElementById('breakTime');
+const timerContainer = document.getElementById('timerContainer');
+const menu = document.getElementById('menu');
 
 function updateDisplay() {
     const minutes = Math.floor(time / 60);
@@ -61,7 +66,17 @@ function resetTimer() {
     startStopButton.textContent = 'Commencer';
 }
 
+function startConfig() {
+    workTime = parseInt(workTimeSelect.value) * 60;
+    breakTime = parseInt(breakTimeSelect.value) * 60;
+    time = workTime;
+    updateDisplay();
+    menu.style.display = 'none';
+    timerContainer.style.display = 'block';
+}
+
 startStopButton.addEventListener('click', startTimer);
 resetButton.addEventListener('click', resetTimer);
+startConfigButton.addEventListener('click', startConfig);
 
 updateDisplay(); // Initialize display
