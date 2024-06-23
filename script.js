@@ -12,10 +12,9 @@ const startStopButton = document.getElementById('startStop');
 const resetButton = document.getElementById('reset');
 const sessionCountElement = document.getElementById('sessionCount');
 const startConfigButton = document.getElementById('startConfig');
-const workTimeSelect = document.getElementById('workTime');
-const breakTimeSelect = document.getElementById('breakTime');
 const timerContainer = document.getElementById('timerContainer');
 const menu = document.getElementById('menu');
+const backToMenuButton = document.getElementById('backToMenu');
 
 function updateDisplay() {
     const minutes = Math.floor(time / 60);
@@ -67,16 +66,40 @@ function resetTimer() {
 }
 
 function startConfig() {
-    workTime = parseInt(workTimeSelect.value) * 60;
-    breakTime = parseInt(breakTimeSelect.value) * 60;
     time = workTime;
     updateDisplay();
     menu.style.display = 'none';
     timerContainer.style.display = 'block';
+    backToMenuButton.style.display = 'block';
 }
+
+function backToMenu() {
+    clearInterval(timer);
+    isRunning = false;
+    menu.style.display = 'block';
+    timerContainer.style.display = 'none';
+    backToMenuButton.style.display = 'none';
+    startStopButton.textContent = 'Commencer';
+    sessionCountElement.textContent = '0';
+    sessionCount = 0;
+    time = 0;
+    updateDisplay();
+}
+
+document.querySelectorAll('.time-selection .time-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const timeValue = parseInt(event.target.getAttribute('data-time'));
+        if (event.target.parentElement.previousElementSibling.textContent.includes('travail')) {
+            workTime = timeValue * 60;
+        } else {
+            breakTime = timeValue * 60;
+        }
+    });
+});
 
 startStopButton.addEventListener('click', startTimer);
 resetButton.addEventListener('click', resetTimer);
 startConfigButton.addEventListener('click', startConfig);
+backToMenuButton.addEventListener('click', backToMenu);
 
 updateDisplay(); // Initialize display

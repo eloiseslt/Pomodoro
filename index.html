@@ -8,27 +8,30 @@
 </head>
 <body>
     <div class="container">
+        <button id="backToMenu" style="display: none;">Retour au menu</button>
         <h1>Timer Pomodoro</h1>
         <div id="menu">
-            <label for="workTime">Temps de travail:</label>
-            <select id="workTime">
-                <option value="25">25 minutes</option>
-                <option value="30">30 minutes</option>
-                <option value="35">35 minutes</option>
-                <option value="40">40 minutes</option>
-                <option value="45">45 minutes</option>
-                <option value="50">50 minutes</option>
-                <option value="55">55 minutes</option>
-                <option value="60">60 minutes</option>
-            </select>
-            <br>
-            <label for="breakTime">Temps de pause:</label>
-            <select id="breakTime">
-                <option value="5">5 minutes</option>
-                <option value="10">10 minutes</option>
-                <option value="15">15 minutes</option>
-            </select>
-            <br>
+            <div class="time-selection">
+                <label>Temps de travail:</label>
+                <div class="buttons-group">
+                    <button class="time-button" data-time="25">25 minutes</button>
+                    <button class="time-button" data-time="30">30 minutes</button>
+                    <button class="time-button" data-time="35">35 minutes</button>
+                    <button class="time-button" data-time="40">40 minutes</button>
+                    <button class="time-button" data-time="45">45 minutes</button>
+                    <button class="time-button" data-time="50">50 minutes</button>
+                    <button class="time-button" data-time="55">55 minutes</button>
+                    <button class="time-button" data-time="60">60 minutes</button>
+                </div>
+            </div>
+            <div class="time-selection">
+                <label>Temps de pause:</label>
+                <div class="buttons-group">
+                    <button class="time-button" data-time="5">5 minutes</button>
+                    <button class="time-button" data-time="10">10 minutes</button>
+                    <button class="time-button" data-time="15">15 minutes</button>
+                </div>
+            </div>
             <button id="startConfig">Commencer</button>
         </div>
         <div id="timerContainer" style="display: none;">
