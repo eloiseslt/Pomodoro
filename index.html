@@ -11,7 +11,7 @@
         <button id="backToMenu" style="display: none;">Retour au menu</button>
         <h1>Timer Pomodoro</h1>
         <div id="menu">
-            <div class="time-selection">
+            <div class="time-selection" id="workTimeSelection">
                 <label>Temps de travail:</label>
                 <div class="buttons-group">
                     <button class="time-button" data-time="25">25 minutes</button>
@@ -24,7 +24,7 @@
                     <button class="time-button" data-time="60">60 minutes</button>
                 </div>
             </div>
-            <div class="time-selection">
+            <div class="time-selection" id="breakTimeSelection">
                 <label>Temps de pause:</label>
                 <div class="buttons-group">
                     <button class="time-button" data-time="5">5 minutes</button>
@@ -41,6 +41,9 @@
             <button id="startStop">Commencer</button>
             <button id="reset">Réinitialiser</button>
             <div id="sessions">Sessions de travail : <span id="sessionCount">0</span></div>
+        </div>
+        <div class="marquee">
+            <span>Travaillez intelligemment, faites des pauses régulièrement !</span>
         </div>
     </div>
     <script src="script.js"></script>

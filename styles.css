@@ -35,8 +35,8 @@ button {
     margin: 5px;
     cursor: pointer;
     border: none;
-    background-color: #7ca3df;
-    color: rgb(26, 15, 151);
+    background-color: #a2c7ff;
+    color: rgb(0, 60, 255);
     border-radius: 5px;
     transition: transform 0.1s ease-in-out;
 }
@@ -46,13 +46,13 @@ button:active {
 }
 
 #startStop {
-    background-color: #325d99;
-    color: white;
+    background-color: #a2c7ff;
+    color: rgb(0, 60, 255);
 }
 
 #reset {
-    background-color: #325d99;
-    color: white;
+    background-color: #a2c7ff;
+    color: rgb(0, 60, 255);
 }
 
 #sessions {
@@ -94,16 +94,21 @@ button:active {
 }
 
 .time-button {
-    background-color: #008CBA;
-    color: white;
+    background-color: #a2c7ff;
+    color: rgb(0, 60, 255);
     margin: 5px;
+}
+
+.time-button.selected {
+    background-color: rgb(0, 60, 255);
+    color: #a2c7ff;
 }
 
 #backToMenu {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #ff9800;
+    background-color: #f5d800;
     color: white;
 }
 
