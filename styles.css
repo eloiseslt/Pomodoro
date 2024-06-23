@@ -10,7 +10,7 @@ body {
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: rgb(250, 210, 210);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -37,16 +37,16 @@ button {
 }
 
 button:active {
-    transform: scale(0.95);
+    transform: scale(0.5);
 }
 
 #startStop {
-    background-color: #4CAF50;
+    background-color: #325d99;
     color: white;
 }
 
 #reset {
-    background-color: #f44336;
+    background-color: #325d99;
     color: white;
 }
 
