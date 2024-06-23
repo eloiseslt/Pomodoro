@@ -1,10 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Palatino;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f7f7f7;
+    background-color: #dc9b9b;
     margin: 0;
 }
 
@@ -23,11 +23,11 @@ button {
     margin: 5px;
     cursor: pointer;
     border: none;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #dce7f4;
+    color: rgb(8, 3, 58);
     border-radius: 5px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #dce7f4;
 }

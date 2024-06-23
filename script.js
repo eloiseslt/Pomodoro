@@ -1,4 +1,4 @@
-let minutes = 25;
+let minutes = 50;
 let seconds = 0;
 let interval;
 let isRunning = false;
@@ -44,7 +44,7 @@ startStopButton.addEventListener('click', () => {
 resetButton.addEventListener('click', () => {
     clearInterval(interval);
     isRunning = false;
-    minutes = 25;
+    minutes = 50;
     seconds = 0;
     updateDisplay();
     startStopButton.textContent = 'Commencer';
